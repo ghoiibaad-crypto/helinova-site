@@ -1,0 +1,424 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>HELINOVA · 사업가를 위한 정부지원사업 컨설팅</title><meta name="description" content="업종과 상황에 맞는 정부지원사업을 찾아, 전략부터 발표까지. 내 사업이 받을 수 있는 지원금을 3분 자가진단으로 확인해 보세요."><meta property="og:title" content="HELINOVA · 사업가를 위한 정부지원사업 컨설팅"><meta property="og:description" content="사업 자금, 빌리지 마세요. 갚지 않아도 되는 돈이 있습니다."><meta property="og:image" content="https://helinovalab.com/logo.png"><link rel="icon" href="logo.png"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* Single deliberate look: 명함을 펼친 구성 — 청록 앞면(헤더·히어로)과 미색 뒷면(본문), 베이지 포인트. 브랜드 3색만. */
+:root {
+  --teal: #0D353D;        /* 짙은 청록 */
+  --teal-deep: #0A2A30;
+  --teal-soft: #15474D;
+  --cream: #F4EFE8;       /* 연한 미색 */
+  --cream-2: #FBF9F6;
+  --cream-3: #ECE3D5;
+  --beige: #C1AD97;       /* 베이지 */
+  --beige-line: #E2DACB;
+  --ink: #0D353D;         /* 제목 */
+  --body: #2B4A49;        /* 본문 글씨 (미색 위) */
+  --muted: #53655F;       /* 약한 글씨 (미색 위) */
+  --on-teal: #F4EFE8;     /* 청록 위 글씨 */
+  --on-teal-dim: #C1AD97; /* 청록 위 베이지 */
+  --on-teal-soft: #9FB4AF;/* 청록 위 약한 글씨 */
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--cream);
+  color: var(--body);
+  font-family: "Noto Sans KR", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.72;
+  letter-spacing: -0.006em;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+h1, h2, h3 { color: var(--ink); text-wrap: balance; letter-spacing: -0.02em; margin: 0; }
+a { color: inherit; }
+img { max-width: 100%; }
+
+.wrap { width: 100%; max-width: 1080px; margin-inline: auto;
+  padding-left: max(22px, env(safe-area-inset-left, 0px));
+  padding-right: max(22px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); }
+
+/* ---------- top band (teal) ---------- */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--teal); }
+.teal-top { background: var(--teal); color: var(--on-teal); }
+
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: color-mix(in srgb, var(--teal) 92%, transparent);
+  backdrop-filter: saturate(1.1) blur(8px);
+  border-bottom: 1px solid color-mix(in srgb, var(--beige) 22%, transparent); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 13px; }
+.brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.brand img { width: 30px; height: auto; display: block; }
+.brand .name { font-weight: 500; letter-spacing: 0.3em; font-size: 16px; color: var(--on-teal); padding-left: 0.3em; }
+nav { display: flex; align-items: center; gap: 2px; }
+nav a { text-decoration: none; color: var(--on-teal-soft); font-size: 14px; font-weight: 500; padding: 8px 12px; border-radius: 8px; }
+nav a:hover { color: var(--on-teal); background: color-mix(in srgb, var(--on-teal) 10%, transparent); }
+.nav-cta { color: var(--teal) !important; background: var(--beige); font-weight: 700; }
+.nav-cta:hover { background: #cdbba6; color: var(--teal) !important; }
+
+/* ---------- hero (teal) ---------- */
+.hero { position: relative; overflow: hidden; }
+.hero .markwm { position: absolute; right: -40px; top: 40px; width: 360px; max-width: 46vw; opacity: 0.1; pointer-events: none; }
+.hero-inner { position: relative; padding-block: clamp(60px, 11vw, 110px); max-width: 760px; }
+.hero .eyebrow { color: var(--on-teal-dim); }
+.hero h1 { color: var(--on-teal); font-size: clamp(34px, 7vw, 60px); line-height: 1.16; font-weight: 900; margin-top: 18px; }
+.hero .lead { color: color-mix(in srgb, var(--on-teal) 82%, transparent); font-size: clamp(16px, 2.3vw, 20px); margin-top: 22px; max-width: 54ch; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px;
+  padding: 14px 24px; border-radius: 10px; border: 1px solid transparent; cursor: pointer;
+  transition: background .15s ease, transform .12s ease, border-color .15s ease; }
+.btn:active { transform: translateY(1px); }
+.btn-beige { background: var(--beige); color: var(--teal); }
+.btn-beige:hover { background: #cdbba6; }
+.btn-outline-cream { background: transparent; color: var(--on-teal); border-color: color-mix(in srgb, var(--on-teal) 42%, transparent); }
+.btn-outline-cream:hover { border-color: var(--beige); color: var(--beige); }
+.hero-note { margin-top: 22px; font-size: 13px; color: var(--on-teal-soft); display: flex; align-items: center; gap: 8px; }
+.dot { width: 5px; height: 5px; border-radius: 50%; background: var(--beige); flex: none; }
+
+/* ---------- sections (cream) ---------- */
+section { scroll-margin-top: 74px; }
+.band { border-top: 1px solid var(--beige-line); }
+.band.tint { background: var(--cream-3); }
+.sec { padding-block: clamp(54px, 9vw, 90px); }
+.sec-head { max-width: 640px; }
+.sec-head h2 { font-size: clamp(25px, 4.4vw, 36px); line-height: 1.24; margin-top: 12px; font-weight: 700; }
+.sec-head > p { color: var(--muted); margin-top: 16px; font-size: clamp(15px, 2vw, 17px); }
+
+/* problem cards */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+.card { background: var(--cream-2); border: 1px solid var(--beige-line); border-radius: 16px; padding: 26px 24px; }
+.band.tint .card { background: var(--cream); }
+.card .n { font-size: 13px; font-weight: 700; color: var(--beige); letter-spacing: 0.12em; }
+.card h3 { font-size: 19px; margin-top: 12px; line-height: 1.4; font-weight: 700; }
+.card p { color: var(--muted); margin-top: 10px; font-size: 14.5px; }
+
+/* self-diagnosis hinge (teal) */
+.diag { background: var(--teal); color: var(--on-teal); border-radius: 24px; overflow: hidden; position: relative; }
+.diag .rays { position: absolute; right: -24px; top: -24px; width: 188px; opacity: .13; pointer-events: none; }
+.diag-inner { padding: clamp(36px, 6vw, 56px); position: relative; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+.diag .eyebrow { color: var(--on-teal-dim); }
+.diag h2 { color: var(--on-teal); font-size: clamp(24px, 4vw, 34px); line-height: 1.26; margin-top: 14px; font-weight: 900; }
+.diag > .diag-inner > div > p { color: color-mix(in srgb, var(--on-teal) 80%, transparent); margin-top: 16px; font-size: 16px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.steps li { display: flex; gap: 14px; align-items: flex-start; }
+.steps .s { width: 28px; height: 28px; flex: none; border-radius: 50%; display: grid; place-items: center;
+  background: color-mix(in srgb, var(--beige) 24%, transparent); color: var(--on-teal); font-weight: 700; font-size: 13px; }
+.steps b { color: var(--on-teal); font-weight: 700; display: block; font-size: 15.5px; }
+.steps span { color: var(--on-teal-soft); font-size: 14px; }
+.diag .cta-row { margin-top: 28px; }
+
+/* process */
+.proc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
+.step { padding-top: 20px; border-top: 2px solid var(--beige); }
+.step .num { font-size: 15px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; }
+.step h3 { font-size: 18px; margin-top: 10px; font-weight: 700; }
+.step p { color: var(--muted); font-size: 14px; margin-top: 8px; }
+.proc-note { margin-top: 30px; padding: 20px 24px; background: var(--teal); color: var(--on-teal); border-radius: 14px; font-size: 15px; }
+.proc-note b { color: var(--beige); }
+
+/* split (now / why-us) */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.split h2 { font-size: clamp(24px, 4.2vw, 34px); line-height: 1.24; margin-top: 12px; font-weight: 700; }
+.split .now-p { color: var(--muted); margin-top: 16px; font-size: 16px; }
+.split .now-p b { color: var(--ink); }
+.reasons { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 20px; }
+.reasons li { display: flex; gap: 16px; }
+.reasons .ic { width: 36px; height: 36px; flex: none; border-radius: 10px; display: grid; place-items: center; background: var(--teal); color: var(--beige); }
+.reasons h3 { font-size: 17px; font-weight: 700; }
+.reasons p { color: var(--muted); font-size: 14.5px; margin-top: 6px; }
+
+/* form */
+.form-card { background: var(--cream-2); border: 1px solid var(--beige-line); border-radius: 20px; padding: clamp(28px, 5vw, 44px); margin-top: 8px; }
+form { display: grid; gap: 18px; margin-top: 28px; }
+.field { display: grid; gap: 7px; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+label { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.req { color: var(--beige); }
+input, select { font: inherit; font-size: 15px; color: var(--body); background: var(--cream);
+  border: 1px solid var(--beige-line); border-radius: 11px; padding: 13px 14px; width: 100%; }
+input::placeholder { color: #9aa8a3; }
+input:focus, select:focus { outline: 2px solid var(--teal); outline-offset: 1px; border-color: var(--teal); }
+.agree { display: flex; gap: 11px; align-items: flex-start; font-weight: 400; font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+.agree input { width: 18px; height: 18px; flex: none; margin-top: 2px; accent-color: var(--teal); }
+.btn-primary { background: var(--teal); color: var(--on-teal); }
+.btn-primary:hover { background: var(--teal-deep); }
+.submit { justify-self: start; }
+.form-ok { display: none; text-align: center; padding: 14px 0 2px; }
+.form-ok.show { display: block; }
+.form-ok .big { font-size: 20px; color: var(--ink); font-weight: 700; }
+.form-ok .sub { color: var(--muted); font-size: 14px; margin-top: 8px; }
+.form-ok .echo { margin-top: 14px; font-size: 13px; color: var(--teal); font-weight: 700; }
+.deploy-note { margin-top: 16px; font-size: 12.5px; color: var(--muted); line-height: 1.65; border: 1px dashed var(--beige-line); border-radius: 10px; padding: 12px 14px; }
+
+/* footer (cream, 명함 뒷면) */
+footer { border-top: 1px solid var(--beige-line); background: var(--cream-2); }
+.foot { padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 22px; align-items: flex-start; }
+.foot .fbrand { display: flex; align-items: center; gap: 11px; }
+.foot .fbrand img { width: 26px; height: auto; }
+.foot .fbrand .name { font-weight: 500; letter-spacing: 0.26em; color: var(--ink); font-size: 16px; padding-left: 0.26em; }
+.foot .meta { font-size: 13px; color: var(--muted); margin-top: 12px; }
+.foot .contact { font-size: 13px; color: var(--muted); margin-top: 12px; }
+.foot .contact a { color: var(--teal); text-decoration: none; }
+.foot .disc { max-width: 420px; font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+@media (max-width: 860px) {
+  .cards { grid-template-columns: 1fr; }
+  .proc { grid-template-columns: 1fr 1fr; }
+  .diag-inner { grid-template-columns: 1fr; gap: 30px; }
+  .split { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  nav a:not(.nav-cta) { display: none; }
+  .proc { grid-template-columns: 1fr; }
+  .row2 { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+</style>
+
+<!-- ============ HEADER + HERO (teal, 명함 앞면) ============ -->
+<div class="teal-top">
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="HELINOVA 홈">
+      <img src="logo.png" alt="HELINOVA 로고">
+      <span class="name">HELINOVA</span>
+    </a>
+    <nav>
+      <a href="#problem">왜 놓치는가</a>
+      <a href="#diagnose">자가진단</a>
+      <a href="#work">하는 일</a>
+      <a href="#why">왜 HELINOVA</a>
+      <a class="nav-cta" href="#contact">상담 문의</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <img class="markwm" src="logo.png" alt="" aria-hidden="true">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">HELINOVA · 정부지원사업 컨설팅</span>
+    <h1>사업 자금, 빌리지 마세요.<br>갚지 않아도 되는 돈이 있습니다.</h1>
+    <p class="lead">업종과 상황에 맞는 정부지원사업을 찾아, 전략부터 발표까지.<br>대한민국이 지원하고 헬리노바가 동행합니다.</p>
+    <div class="cta-row">
+      <a class="btn btn-beige" href="diagnose.html">내 사업, 얼마나 받을 수 있을까?</a>
+      <a class="btn btn-outline-cream" href="#contact">상담 문의하기</a>
+    </div>
+    <p class="hero-note"><span class="dot"></span> 사업가를 위한 정부지원사업 컨설팅 · 부산 기반</p>
+  </div>
+</section>
+</div>
+
+<!-- ============ PROBLEM (why anything) ============ -->
+<section class="band" id="problem">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <span class="eyebrow">왜 놓치는가</span>
+      <h2>내 업종이 뭘 받을 수 있는지,<br>알고 계신가요?</h2>
+      <p>지원사업 정보는 이미 공개돼 있습니다. 문제는 "그 많은 것 중에 내 가게에 맞는 게 무엇인지"를 가려내고, 실제로 준비하는 일입니다.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="n">01</div>
+        <h3>내 가게에 맞는 사업을 모른다</h3>
+        <p>공고는 수백 개인데, 업력·업종·매출에 따라 받을 수 있는 건 보통 두세 개입니다. 그걸 가려내는 게 어렵습니다.</p>
+      </div>
+      <div class="card">
+        <div class="n">02</div>
+        <h3>해마다 공고가 바뀐다</h3>
+        <p>작년에 있던 사업이 올해는 없어지고, 새로 생긴 걸 모른 채 지나갑니다. 매년 다시 확인해야 합니다.</p>
+      </div>
+      <div class="card">
+        <div class="n">03</div>
+        <h3>서류와 발표가 막막하다</h3>
+        <p>사업계획서를 어떻게 쓰는지, 심사에서 무엇을 보는지 모른 채 제출하면 준비한 시간만 날립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SELF-DIAGNOSIS (the hinge) ============ -->
+<section class="band tint" id="diagnose">
+  <div class="wrap sec">
+    <div class="diag">
+      <img class="rays" src="logo.png" alt="" aria-hidden="true">
+      <div class="diag-inner">
+        <div>
+          <span class="eyebrow">3분 자가진단</span>
+          <h2>올해 도전할 수 있는<br>지원사업이, 바로 보입니다.</h2>
+          <p>아홉 가지 질문에 답하면 올해 도전 가능한 사업 개수와 지원금 범위를 보여드립니다. 선정을 보장하지는 않지만, 어디서부터 시작할지 감이 잡힙니다.</p>
+          <div class="cta-row">
+                        <a class="btn btn-beige" href="diagnose.html">자가진단 시작하기</a>
+          </div>
+        </div>
+        <div>
+          <ol class="steps">
+            <li><span class="s">1</span><div><b>9가지 질문에 답하기</b><span>업력·업종·매출·지역·목표 등</span></div></li>
+            <li><span class="s">2</span><div><b>결과 확인</b><span>도전 가능 사업 개수 · 지원금 범위</span></div></li>
+            <li><span class="s">3</span><div><b>맞춤 로드맵 상담</b><span>연락처를 남기면 직접 안내드립니다</span></div></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE DO ============ -->
+<section class="band" id="work">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <span class="eyebrow">하는 일</span>
+      <h2>대행이 아니라, 판단을 드립니다</h2>
+      <p>찾고 읽고 정리하는 일은 저희가 돕고, 무엇을 왜 준비할지는 함께 정합니다. 진단에서 발표까지 한 흐름으로 이어집니다.</p>
+    </div>
+    <div class="proc">
+      <div class="step"><div class="num">01 진단</div><h3>도전할 사업 추리기</h3><p>업종·업력·상황을 보고 올해 도전할 사업을 추립니다.</p></div>
+      <div class="step"><div class="num">02 전략</div><h3>연차별 로드맵</h3><p>무엇부터 할지 1년 단위로 순서를 정합니다.</p></div>
+      <div class="step"><div class="num">03 첨삭</div><h3>심사 관점 다듬기</h3><p>사업계획서를 심사의 눈으로 다시 읽고 고칩니다.</p></div>
+      <div class="step"><div class="num">04 발표</div><h3>발표평가 코칭</h3><p>막히지 않도록 예상 질문을 함께 연습합니다.</p></div>
+    </div>
+    <div class="proc-note"><b>대신 써드리지 않습니다.</b> 계획서는 대표님이 직접 쓰시되, 붙을 수 있게 옆에서 설계하고 다듬습니다. 서류 대행이 아니라 전략·첨삭·코칭입니다.</div>
+  </div>
+</section>
+
+<!-- ============ NOW + WHY US ============ -->
+<section class="band tint" id="why">
+  <div class="wrap sec">
+    <div class="split">
+      <div>
+        <span class="eyebrow">왜 지금인가</span>
+        <h2>공고가 뜨고 나서는,<br>이미 늦습니다.</h2>
+        <p class="now-p">정부지원사업 통합공고는 매년 초에 몰립니다. 심사위원이 가장 믿는 건 <b>이미 일어난 일</b>입니다. 고객 인터뷰, 시제품, 초기 매출 같은 증거는 공고가 뜨기 전에 만들어둬야 합니다. 지금 준비를 시작해야 한 해가 통째로 비지 않습니다.</p>
+      </div>
+      <div>
+        <span class="eyebrow">왜 HELINOVA인가</span>
+        <ul class="reasons">
+          <li>
+            <span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.6"/></svg></span>
+            <div><h3>심사의 관점을 압니다</h3><p>발표평가 현장을 직접 겪으며 심사위원이 무엇을 보는지 익혔습니다. 그 기준으로 계획서를 다시 읽습니다.</p></div>
+          </li>
+          <li>
+            <span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><h3>한 번이 아니라 1년 동행</h3><p>한 번에 붙는 게 아닙니다. 매달 맞는 공고를 추천하고, 떨어진 경험을 다음 신청에 반영합니다.</p></div>
+          </li>
+          <li>
+            <span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><h3>정직하게 선별합니다</h3><p>준비가 안 된 사업은 "지금은 이것부터"라고 솔직히 말씀드립니다. 될 것만 같이 밀어붙이지 않습니다.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="band" id="contact">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <span class="eyebrow">상담 문의</span>
+      <h2>우리 가게에 맞는 지원사업,<br>함께 찾아드릴게요.</h2>
+      <p>연락처를 남겨 주시면 HELINOVA가 직접 연락드립니다. 어떤 사업에 도전할 수 있는지, 무엇부터 준비할지 안내해 드립니다.</p>
+    </div>
+    <div class="form-card">
+      <form id="leadForm" novalidate>
+        <div class="row2">
+          <div class="field"><label for="shop">상호명 <span class="req">*</span></label><input type="text" id="shop" name="shop" autocomplete="organization" required></div>
+          <div class="field"><label for="name">대표자 성함 <span class="req">*</span></label><input type="text" id="name" name="name" autocomplete="name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="tel">연락처 <span class="req">*</span></label><input type="tel" id="tel" name="tel" inputmode="tel" placeholder="010-0000-0000" autocomplete="tel" required></div>
+          <div class="field"><label for="region">사업장 지역 <span class="req">*</span></label>
+            <select id="region" name="region" required>
+              <option value="">선택해 주세요</option>
+              <option>부산</option><option>서울</option><option>경기</option><option>인천</option>
+              <option>대구</option><option>광주</option><option>대전</option><option>울산</option>
+              <option>세종</option><option>강원</option><option>충북</option><option>충남</option>
+              <option>전북</option><option>전남</option><option>경북</option><option>경남</option><option>제주</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="biz">업종 <span style="color:var(--muted);font-weight:400">(선택)</span></label><input type="text" id="biz" name="biz" placeholder="예: 음식점, 제조, 온라인 판매"></div>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+        <label class="agree" for="agree">
+          <input type="checkbox" id="agree" name="agree" required>
+          <span>[필수] 상담 연락을 위한 개인정보(상호명·성함·연락처·지역·업종) 수집·이용에 동의합니다. 보관 기간은 상담 종료 후 1년이며, 개인정보처리방침에 따릅니다.</span>
+        </label>
+        <button class="btn btn-primary submit" type="submit">상담 신청하기</button>
+      </form>
+      <div class="form-ok" id="formOk" role="status" aria-live="polite">
+        <div class="big">온라인 접수를 준비하고 있습니다.</div>
+        <div class="sub">010-7656-6439 또는 nova@helinovalab.com으로 연락 주시면 바로 안내해 드리겠습니다.</div>
+        <div class="echo" id="echo"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (cream, 명함 뒷면) ============ -->
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="fbrand">
+        <img src="logo.png" alt="HELINOVA 로고">
+        <span class="name">HELINOVA</span>
+      </div>
+      <p class="meta">사업가를 위한 정부지원사업 컨설팅 · 경영컨설팅</p>
+      <p class="contact">강민 · 대표 &nbsp;|&nbsp; <a href="tel:01076566439">010-7656-6439</a> &nbsp;|&nbsp; <a href="mailto:nova@helinovalab.com">nova@helinovalab.com</a></p>
+    </div>
+    <p class="disc">정부지원사업의 선정은 보장되지 않으며, 지원 금액과 자격 요건은 해당 연도 공고에 따라 달라집니다. 본 페이지의 안내는 참고용이며, 실제 신청은 공고 기준으로 확인이 필요합니다.</p>
+  </div>
+</footer>
+
+<script>
+/* 접수 주소: 구글 Apps Script 웹 앱 주소(…/exec)를 넣으면 실제로 접수됩니다. 비어 있으면 미리보기 모드. */
+var ENDPOINT = '';
+(function () {
+  var form = document.getElementById('leadForm'),
+      ok = document.getElementById('formOk'),
+      echo = document.getElementById('echo');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var missing = [...form.querySelectorAll('[required]')].find(function (el) {
+      return el.type === 'checkbox' ? !el.checked : !el.value.trim();
+    });
+    if (missing) { missing.focus(); return; }
+    var btn = form.querySelector('.submit');
+    function show() {
+      echo.textContent = form.shop.value.trim() + ' · ' + form.region.value
+        + (form.biz.value.trim() ? ' · ' + form.biz.value.trim() : '');
+      form.hidden = true;
+      ok.classList.add('show');
+      ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    if (ENDPOINT) {
+      btn.disabled = true; btn.textContent = '접수 중…';
+      fetch(ENDPOINT, { method: 'POST', body: JSON.stringify({
+        source: 'homepage', shop: form.shop.value.trim(), name: form.name.value.trim(),
+        tel: form.tel.value.trim(), region: form.region.value, biz: form.biz.value.trim(),
+        agree: form.agree.checked, website: form.website.value
+      }) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (!j.ok) throw new Error(j.error || 'fail');
+        ok.querySelector('.big').textContent = '상담 신청이 접수됐습니다.';
+        ok.querySelector('.sub').textContent = '영업일 기준 1~2일 안에 HELINOVA가 직접 연락드리겠습니다.';
+        show();
+      })
+      .catch(function () {
+        btn.disabled = false; btn.textContent = '상담 신청하기';
+        alert('접수 중 문제가 생겼어요. 잠시 후 다시 시도하시거나 010-7656-6439로 연락 주세요.');
+      });
+      return;
+    }
+    echo.textContent = form.shop.value.trim() + ' · ' + form.region.value
+      + (form.biz.value.trim() ? ' · ' + form.biz.value.trim() : '');
+    form.hidden = true;
+    ok.classList.add('show');
+    ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+})();
+</script>
+
+</body></html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>내 사업, 얼마나 받을 수 있을까? · HELINOVA 지원금 자가진단</title>
+<meta name="description" content="9개 질문으로 올해 도전할 수 있는 정부지원사업 수와 지원금 규모를 확인해 보세요.">
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0D353D;--paper:#F4EFE8;--paper2:#E8E0D4;--accent:#7A6248;--accent-l:#C1AD97;--muted:#45585B;--faint:#6B7580;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{word-break:keep-all;font-family:'Noto Sans KR',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:32px 20px 48px}
+.brand{font-weight:800;letter-spacing:.18em;font-size:15px;color:var(--ink);align-self:center;margin-bottom:28px}
+.card{width:100%;max-width:640px;background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 2px 0 rgba(13,53,61,.04)}
+.eyebrow{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px}
+h1{font-size:28px;font-weight:800;line-height:1.35;margin-bottom:12px}
+h2{font-size:24px;font-weight:800;line-height:1.4;margin-bottom:6px}
+p.lead{font-size:16px;line-height:1.65;color:var(--muted)}
+.hint{font-size:14px;color:var(--faint);margin-bottom:20px;line-height:1.5}
+.progress{height:6px;background:var(--paper2);border-radius:3px;margin-bottom:28px;overflow:hidden}
+.progress span{display:block;height:100%;background:var(--ink);transition:width .3s}
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.opt{border:1.5px solid var(--paper2);background:var(--paper);border-radius:12px;padding:15px 18px;font-size:16px;font-family:inherit;color:var(--ink);text-align:left;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--accent-l)}
+.opt:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.btn{display:inline-block;border:none;border-radius:12px;padding:16px 22px;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer;background:var(--ink);color:var(--paper);width:100%}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.back{background:none;border:none;color:var(--faint);font-family:inherit;font-size:14px;margin-top:18px;cursor:pointer}
+.result{background:var(--ink);color:var(--paper);border-radius:16px;padding:28px 24px;margin:18px 0 22px}
+.result .k{font-size:14px;color:var(--accent-l);font-weight:700;margin-bottom:6px}
+.result .big{font-size:clamp(21px,5.5vw,26px);font-weight:800;line-height:1.45}
+.result .big b{color:var(--accent-l)}
+.result .note{font-size:13px;color:#CFD9D8;margin-top:12px;line-height:1.6}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 22px}
+.tag{background:var(--paper2);border-radius:999px;padding:7px 14px;font-size:14px;color:var(--muted)}
+.tag.lock{color:var(--faint)}
+form{display:flex;flex-direction:column;gap:12px}
+label{font-size:14px;font-weight:700;color:var(--muted)}
+input[type=text],input[type=tel],select{width:100%;margin-top:6px;padding:13px 14px;border:1.5px solid var(--paper2);border-radius:10px;font-size:16px;font-family:inherit;background:var(--paper);color:var(--ink)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:400;color:var(--muted);line-height:1.55;background:var(--paper);padding:12px 14px;border-radius:10px}
+.agree input{margin-top:3px}
+.foot{font-size:12px;color:var(--faint);margin-top:22px;text-align:center;line-height:1.6}
+.hide{display:none}
+</style>
+</head>
+<body>
+<a class="brand" href="./" style="text-decoration:none">HELINOVA</a>
+<main class="card" id="app"></main>
+<p class="foot">결과는 2026년 공고 기준으로 대략 계산한 참고용이며, 선정을 보장하지 않습니다.<br>사업명·금액·자격은 해당 연도 공고에 따라 달라집니다.</p>
+
+<script>
+/* 접수 주소: 구글 Apps Script 웹 앱 주소(…/exec)를 넣으면 실제로 접수됩니다. 비어 있으면 시제품 모드. */
+const ENDPOINT='';
+const Q=[
+ {id:"ind",q:"어떤 업종을 운영하고 계신가요?",o:[["food","음식점·카페"],["retail","소매·유통·온라인 판매"],["beauty","미용·뷰티·생활서비스"],["make","제조·공방·식품 가공"],["tech","IT·콘텐츠·기술 서비스"],["etc","기타"]]},
+ {id:"age",q:"사업을 시작하신 지 얼마나 되셨나요?",h:"사업자등록일 기준입니다.",o:[["pre","아직 창업 전이에요"],["y3","3년 이내"],["y7","3년 초과 ~ 7년 이내"],["old","7년 초과"]]},
+ {id:"emp",q:"4대보험에 가입한 직원은 몇 명인가요?",h:"대표님은 빼고 세어 주세요.",o:[["s","0~4명"],["m","5~9명"],["l","10명 이상"]]},
+ {id:"rev",q:"지난해 연매출은 어느 정도인가요?",o:[["r1","1억 원 미만"],["r5","1억 ~ 5억 원"],["r10","5억 ~ 10억 원"],["rx","10억 원 이상"]]},
+ {id:"techq",q:"기술이나 새로운 사업모델을 갖고 계신가요?",h:"예: 자체 앱·플랫폼, 특허 기술, 새로운 방식의 서비스",o:[["y","네, 있어요"],["n","아니요, 일반적인 매장·사업이에요"]]},
+ {id:"prod",q:"손님이 자주 찾는 메뉴나 상품이 있고, 포장·택배 문의를 받은 적이 있나요?",o:[["y","네, 상품으로 키워 보고 싶어요"],["n","아직은 없어요"]]},
+ {id:"smart",q:"스마트상점(키오스크·서빙로봇 등 도입 지원)을 받은 적이 있나요?",o:[["n","받은 적 없어요"],["y","받았어요"],["u","잘 모르겠어요"]]},
+ {id:"young",q:"대표님은 만 39세 이하이신가요?",o:[["y","네"],["n","아니요"]]},
+ {id:"goal",q:"3년 뒤, 가게(회사)가 어떻게 되어 있으면 좋겠어요?",o:[["keep","지금처럼 안정적으로 유지"],["eff","일을 줄이고 운영을 효율적으로"],["grow","대표 상품·브랜드로 키우기"],["scale","투자 유치·확장·해외 진출"]]}
+];
+const A={}; let step=0;
+const app=document.getElementById('app');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function intro(){
+ app.innerHTML=`<p class="eyebrow">1분 자가진단</p>
+ <h1>우리 가게, 올해 어떤 지원사업에 도전할 수 있을까요?</h1>
+ <p class="lead">9개 질문에 답하시면 올해 도전해 볼 수 있는 지원사업 수와 대략적인 지원금 규모를 알려 드립니다.</p>
+ <div style="height:26px"></div><button class="btn" id="go">시작하기</button>`;
+ document.getElementById('go').onclick=()=>{step=0;ask();};
+}
+function ask(){
+ const q=Q[step];
+ app.innerHTML=`<div class="progress"><span style="width:${(step/Q.length)*100}%"></span></div>
+ <p class="eyebrow">질문 ${step+1} / ${Q.length}</p><h2>${esc(q.q)}</h2>${q.h?`<p class="hint">${esc(q.h)}</p>`:''}
+ <div class="opts">${q.o.map(([v,t])=>`<button class="opt" data-v="${v}">${esc(t)}</button>`).join('')}</div>
+ <button class="back" id="back">← ${step?'이전 질문':'처음으로'}</button>`;
+ app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{A[q.id]=b.dataset.v;step++;step<Q.length?ask():result();});
+ document.getElementById('back').onclick=()=>{if(step){step--;ask();}else intro();};
+}
+
+/* 내부 계산 규칙 (2026년 공고 기준, 신청 목표 금액은 보수적으로) — 매년 공고 후 갱신 */
+function calc(){
+ const small = A.emp==='s' || (A.emp==='m' && A.ind==='make');
+ const tech = A.techq==='y';
+ const growth = A.goal==='grow'||A.goal==='scale';
+ const L=[]; // [이름, 신청목표(만원), 사업화자금 그룹 여부]
+ if(tech){
+  if(A.age==='pre') L.push(["예비창업패키지",5000,1]);
+  if(A.age==='y3') L.push(["초기창업패키지",7000,1]);
+  if(A.age==='y7') L.push(["창업도약패키지",10000,1]);
+  if(A.young==='y' && (A.age==='pre'||A.age==='y3')) L.push(["청년창업사관학교",7000,1]);
+  if(A.age!=='pre') L.push(["데이터바우처",4500,0]);
+  if(A.goal==='scale' && A.age!=='pre') L.push(["수출·해외진출 지원",1000,0]);
+ }
+ if(A.age!=='pre'){
+  if(small){
+   if(A.smart!=='y') L.push(["스마트상점",350,0]);
+   L.push(["고효율기기 지원",120,0]);
+   if(A.rev==='r1') L.push(["경영안정 바우처",25,0]);
+   L.push(["지자체 경영환경개선",300,0]);
+   L.push(["온라인 판로 지원",0,0]);
+   if(A.goal!=='keep') L.push(["AI 활용지원",2000,1]);
+   if(A.prod==='y') L.push(["생활문화 혁신지원",3000,1]);
+   if(growth) L.push(["소상공인 도약지원",300,0]);
+   if(A.prod==='y'||growth) L.push(["IP·상표 지원",500,0]);
+  }else{
+   if(A.ind!=='make') L.push(["스마트서비스 지원",3000,1]);
+   else L.push(["제조혁신바우처",3000,1]);
+   L.push(["고용 관련 지원",0,0]);
+   if(growth && !tech) L.push(["수출·해외진출 지원",1000,0]);
+  }
+ }
+ // 사업화 자금 사업은 동시 수행 제한이 많아 가장 큰 1개만 금액에 넣음
+ const g=L.filter(x=>x[2]).map(x=>x[1]); const others=L.filter(x=>!x[2]).reduce((s,x)=>s+x[1],0);
+ const total=(g.length?Math.max(...g):0)+others;
+ return {list:L, total};
+}
+function band(t){
+ if(t<1000) return "수백만 원대";
+ if(t<5000) return "1천만 ~ 5천만 원대";
+ if(t<10000) return "5천만 ~ 1억 원대";
+ return "1억 원 이상";
+}
+function result(){
+ const r=calc(); const n=r.list.length;
+ const teaser=r.list.slice(0,2).map(x=>`<span class="tag">${esc(x[0])}</span>`).join('')+(n>2?`<span class="tag lock">외 ${n-2}개는 상담에서 안내</span>`:'');
+ app.innerHTML=`<div class="progress"><span style="width:100%"></span></div>
+ <p class="eyebrow">진단 결과</p>
+ <div class="result"><p class="k">올해 기준</p>
+ <p class="big">약 <b>${n}개</b>의 지원사업,<br><b>${band(r.total)}</b> 지원금에<br>도전해 보실 수 있습니다.</p>
+ <p class="note">공고 기준으로 대략 계산한 금액입니다. 실제 신청 금액은 사업 계획과 견적에 따라 달라지고, 선정을 보장하지 않습니다.</p></div>
+ <div class="tags">${teaser}</div>
+ <h2 style="font-size:20px">어떤 사업이 우리 가게에 맞는지, 무엇부터 준비할지 상담해 드릴게요</h2>
+ <p class="hint">연락처를 남겨 주시면 HELINOVA가 직접 연락드립니다.</p>
+ <form id="f" novalidate>
+  <label>상호명<input type="text" name="shop" required></label>
+  <label>대표자 성함<input type="text" name="name" required></label>
+  <label>연락처<input type="tel" name="tel" placeholder="010-0000-0000" required></label>
+  <label>사업장 지역<select name="region" required><option value="">선택해 주세요</option>${["부산","서울","경기","인천","대구","광주","대전","울산","세종","강원","충북","충남","전북","전남","경북","경남","제주"].map(x=>`<option>${x}</option>`).join('')}</select></label>
+  <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+  <label class="agree"><input type="checkbox" name="ok" required><span>[필수] 상담 연락을 위한 개인정보(상호명, 성함, 연락처, 지역, 진단 답변) 수집·이용에 동의합니다. 보관 기간: 상담 종료 후 1년.</span></label>
+  <button class="btn" id="sb" disabled>상담 신청하기</button>
+ </form>
+ <button class="back" id="re">← 다시 진단하기</button>`;
+ const f=document.getElementById('f'), sb=document.getElementById('sb');
+ const chk=()=>{sb.disabled=!(f.shop.value.trim()&&f.name.value.trim()&&f.tel.value.trim()&&f.region.value&&f.ok.checked);};
+ f.addEventListener('input',chk); f.addEventListener('change',chk);
+ f.addEventListener('submit',e=>{e.preventDefault(); if(sb.disabled) return; done(f, r);});
+ document.getElementById('re').onclick=()=>{for(const k in A) delete A[k]; intro();};
+}
+function label(id){const q=Q.find(x=>x.id===id);const o=q&&q.o.find(x=>x[0]===A[id]);return o?o[1]:'';}
+async function done(f, r){
+ if(ENDPOINT){
+  const sb=document.getElementById('sb'); sb.disabled=true; sb.textContent='접수 중…';
+  const answers={}; Q.forEach(q=>answers[q.id]=label(q.id));
+  const payload={source:'diagnosis',shop:f.shop.value.trim(),name:f.name.value.trim(),tel:f.tel.value.trim(),region:f.region.value,agree:f.ok.checked,website:f.website.value,answers,count:r.list.length,band:band(r.total),programs:r.list.map(x=>x[0])};
+  try{
+   const res=await fetch(ENDPOINT,{method:'POST',body:JSON.stringify(payload)});
+   const j=await res.json(); if(!j.ok) throw new Error(j.error||'fail');
+  }catch(err){
+   sb.disabled=false; sb.textContent='상담 신청하기';
+   alertBox('접수 중 문제가 생겼어요. 잠시 후 다시 시도하시거나 010-7656-6439로 연락 주세요.');
+   return;
+  }
+  app.innerHTML=`<p class="eyebrow">신청 완료</p>
+  <h2>상담 신청이 접수됐습니다</h2>
+  <p class="lead" style="margin-top:8px">HELINOVA가 남겨 주신 연락처로 직접 연락드리겠습니다. 영업일 기준 1~2일 안에 연락드려요.</p>
+  <div class="result" style="margin-top:22px"><p class="k">${esc(f.shop.value)} · ${esc(f.region.value)}</p>
+  <p class="note" style="color:#F4EFE8;font-size:14px">약 ${r.list.length}개 지원사업 · ${band(r.total)}</p></div>
+  <button class="btn" id="re2">처음으로</button>`;
+  document.getElementById('re2').onclick=()=>{for(const k in A) delete A[k]; intro();};
+  return;
+ }
+ // ENDPOINT가 비어 있으면 전송하지 않고 연락처를 안내합니다.
+ app.innerHTML=`<p class="eyebrow">안내</p>
+ <h2>온라인 접수를 준비하고 있습니다</h2>
+ <p class="lead" style="margin-top:8px">010-7656-6439 또는 nova@helinovalab.com으로 연락 주시면 진단 결과를 바탕으로 바로 안내해 드리겠습니다.</p>
+ <div class="result" style="margin-top:22px"><p class="k">${esc(f.shop.value)} · ${esc(f.region.value)}</p>
+ <p class="note" style="color:#F4EFE8;font-size:14px">${r.list.map(x=>esc(x[0])).join(' · ')}</p></div>
+ <button class="btn" id="re2">처음으로</button>`;
+ document.getElementById('re2').onclick=()=>{for(const k in A) delete A[k]; intro();};
+}
+function alertBox(msg){let b=document.getElementById('err');if(!b){b=document.createElement('p');b.id='err';b.className='hint';b.style.cssText='color:#9a3b2e;margin-top:12px';document.getElementById('f').after(b);}b.textContent=msg;}
+intro();
+</script>
+</body>
+</html>
